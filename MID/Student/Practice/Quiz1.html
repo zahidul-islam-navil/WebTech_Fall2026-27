@@ -1,0 +1,258 @@
+<!-- Notes -->
+
+<!-- 
+
+DOM -> Document Object Model
+URI -> Uniform Resource Identiifer
+URL -> Uniform Resource Locator
+URN -> Uniform Resource Name
+HTTP -> Hyper Text Transfer Protocol ; A protocol for communication and authentication between browser and server. 
+
+(*) How HTTP and URL works together? 
+The browser converts a URL to http request and send it to the http server to fetch the resources. 
+
+(*) How server handles HTTP requests? 
+It maps the request to a file in the servers document history or maps it to a program, executes it and then returns the output.
+If it is not successful, then it returns an error message. 
+
+(*) HTTP vs HTTPs
+HTTP sends data accross the HTTP in plain text, but in case of HTTPs, it sends data in encrypted format. 
+
+(*) What is HTML? 
+Hyper Text Transfer Protocol. It describes the structure of a webpage. It is made up of elements represented by tags. 
+Tags define content types like heading, paragraph, table etc. Browser use these tags to render contents, but do not display these tags.
+
+
+-->
+
+<!-- Codes -->
+
+<!DOCTYPE html>
+    <head>
+        <title> Practice </title> 
+    </head>
+
+    <body>
+
+        <!-- Basic Syntax -->
+        <h1> My very first heading, lol </h1>
+        <p> My first paragraph </p> 
+        <b>Bold Text</b> <br>
+        <strong>Important</strong> <br>
+        <i>Italic Text</i> <br>
+        <em>Emphasized</em> <br>
+        <u>Underlined</u> <br>
+        <mark>Marked</mark> <br> 
+        <del> Old price </del> <br>
+        <ins> New text </ins> <br> 
+
+
+        <!-- HTML Links -->
+        <a href = "https://github.com/zahidul-islam-navil" target = "_blank"> Github Link </a> <!-- Target is used to opne the link in a new tab --> <br>
+        <!-- Image add-->
+        <p> Image of Larry </p>
+        <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKA3-l1P5u2B3DBYYV3DIhr0PMqJ7tPfL9CCuHNSM9_g&s" alt = "Image of larry"> <br>
+        
+        <!-- Tables -->
+
+        <table border="1"> 
+            <tr> 
+                <th>Name</th> 
+                <th>Age</th> 
+                <th>City</th> 
+            </tr> 
+            <tr> 
+                <td>John</td> 
+                <td>25</td> 
+                <td>New York</td> 
+            </tr> 
+            <tr> 
+                <td>Mary</td> 
+                <td>30</td> 
+                <td>London</td> 
+            </tr> 
+        </table> 
+
+
+        <!-- 
+            HTML Forms: It is used to collect user info and send it to the server for processing.  
+            There are a total of two form attributes, they are action (URL where form data is sent) and method (HTTP method for submission, like GET or POST).          
+        -->
+        <br> <br> <br>
+        <form>
+            <fieldset>
+                <legend> Login </legend>
+                    <table>
+                        <tr> 
+                            <td>
+                                <label for = "email"> Email : </label> <!-- To write a label :_) -->
+                            </td>
+                            <td>
+                                <input type = "email" id = "email" name = "email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for = "password"> Password : </label>
+                            </td>    
+                            <td>
+                                <input type = "password" id = "password" name = "password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type = "Submit"> Login </button>
+                            </td>
+                        </tr>
+                    </table>  
+            </fieldset>
+        </form>
+
+        <br> <br> 
+        <!-- Input types 
+            must ones
+            type -> what kinda i/p 
+            name -> the key the data is sent under, without it, the fields value will not be sent at all. And for radio button, a shared name is what groups them
+            id -> must be unique, and , < label for = " " > er sathe connect kore, mainly used for backend uses, like for JS implementation
+            value -> the current or default value
+
+            highly recommended
+
+            placeholder
+            required
+            autocomplete
+            disables/readonly 
+        -->
+
+        <!-- Claude generated code for exmaple -->
+        
+        <form>
+            <!-- Text -->
+            <div>
+                <label for="username">Username</label>
+                <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                autocomplete="username"
+                minlength="3"
+                maxlength="20"
+                required
+                >
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label for="pwd">Password</label>
+                <input
+                type="password"
+                id="pwd"
+                name="pwd"
+                placeholder="Password"
+                autocomplete="new-password"
+                minlength="8"
+                required
+                >
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email">Email</label>
+                <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+                >
+            </div>
+
+            <!-- Number -->
+            <div>
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="13" max="120" step="1">
+            </div>
+
+            <!-- Date -->
+            <div>
+                <label for="dob">Date of birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+
+            <!-- Radio buttons (same name groups them) -->
+            <fieldset>
+                <legend>Gender</legend>
+
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </fieldset>
+
+            <!-- Checkbox -->
+            <div>
+                <input type="checkbox" id="subscribe" name="subscribe" value="newsletter" checked>
+                <label for="subscribe">Subscribe to newsletter</label>
+            </div>
+
+            <!-- File upload -->
+            <div>
+                <label for="avatar">Profile picture</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+            </div>
+
+            <!-- Submit -->
+            <button type="submit">Submit</button>
+
+        </form> 
+
+        <!-- Sematic Elements: They describe their meaning in both the browser and the developer's perspective 
+             Non-Sematic Elements: They do not describe their content’s meaning or role in the webpage.   ( <div> , <span> ) 
+        -->
+
+        <p> non Sematic </p> 
+        <div> 
+            <h2>This is a div container</h2> 
+            <p>This is some content inside a div.</p> 
+        </div> 
+            
+        <p>This is a <span>highlighted</span> word using span.</p> 
+
+        <br> 
+        <p> non Sematic </p>
+        <header> 
+            <h1>Welcome to My Website</h1> 
+        </header> 
+        
+        <nav> 
+            <a href="#home">Home</a> | 
+            <a href="#about">About</a> 
+        </nav> 
+        
+        <section> 
+            <article> 
+            <h2>Blog Post</h2> 
+            <p>This is a sample blog post using semantic tags.</p> 
+            </article> 
+        </section> 
+        
+        <aside> 
+            <p>Related Links or Ads</p> 
+        </aside> 
+        
+        <footer> 
+            <p>Copyright © 2025</p> 
+        </footer> 
+
+
+        <!-- HTML Attributes: Provide additional information about HTML elements. They are always 
+            specified in the start tag and usually come in name-value pairs.  -->
+        <img src="Bliss_(Windows_XP).png" alt="Windows Logo" width="200" height="100"> <br>
+        <a href="https://google.com" title="Go to Google" target="_blank">Google</a> <br>
+        <p id="intro" class="highlight" style="color:blue;">Welcome!</p>
+
+    </body>
+</html>
