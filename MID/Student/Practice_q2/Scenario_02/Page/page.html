@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../Design/style.css">
+    <script src="../JS/script.js" defer></script>
+    <title>Quiz Practice</title>
+</head>
+
+<body>
+    <form onsubmit="return collect_data()">
+    <fieldset>
+        <legend>User Info</legend>
+        <label for="PatientEmail">Email:</label>
+        <input type="text" id="PatientEmail">
+        <p id="EmailError"></p>
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <p id="PasswordError"></p>
+        <input type="submit" id="submit" value="Signup">
+    </fieldset>
+</form>
+</body>
+
+</html>

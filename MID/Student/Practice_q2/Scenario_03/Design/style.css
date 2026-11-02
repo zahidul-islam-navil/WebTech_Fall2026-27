@@ -1,0 +1,17 @@
+fieldset {
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+}
+input[type="radio"], input[type="checkbox"] {
+    margin: 10px 4px 0 10px;
+}
+p {
+    color: red;
+    font-weight: bold;
+}
+#submit {
+    background-color: black;
+    color: white;
+    padding: 10px 28px;
+}

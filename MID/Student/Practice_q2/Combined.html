@@ -1,0 +1,298 @@
+<!--
+Scenario: Patient Registration Form
+
+Write a form that requires:
+- A patient name of at least 6 characters.
+- An age between 1 and 100.
+- One selected gender.
+- At least one selected department.
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aliceblue;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 70px 20px;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 20px;
+            border-radius: 20px ;
+        }
+
+        fieldset {
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        legend {
+            background-color: bisque;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 8px 6px;
+            vertical-align: top;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 90%;
+            padding: 8px 10px;
+            font-family: Cambria, Georgia, serif;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 10px 4px 0 10px;
+        }
+
+        p {
+            color: red;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        #submit {
+            background-color: black;
+            color: white;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #submit:hover {
+            background-color: skyblue;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Patient Registration Form</h1>
+    </div>
+
+    <form onsubmit="return collect_data()">
+
+        <fieldset>
+            <legend>Patient Personal Information</legend>
+
+            <table>
+                <tr>
+                    <td>
+                        <label for="PatientName">Patient Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="PatientName"
+                               name="PatientName">
+                        <p id="NameError"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="PatientAge">Patient Age:</label>
+                    </td>
+                    <td>
+                        <input type="number" id="PatientAge"
+                               name="PatientAge">
+                        <p id="AgeError"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" id="Male"
+                               name="gender" value="Male">
+                        <label for="Male">Male</label>
+
+                        <input type="radio" id="Female"
+                               name="gender" value="Female">
+                        <label for="Female">Female</label>
+
+                        <p id="ErrorGender"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Doctor Department:</td>
+                    <td>
+                        <input type="checkbox" id="DeptMedicine"
+                               name="dept" value="Medicine">
+                        <label for="DeptMedicine">Medicine</label>
+
+                        <input type="checkbox" id="DeptCardiac"
+                               name="dept" value="Cardiac">
+                        <label for="DeptCardiac">Cardiac</label>
+
+                        <input type="checkbox" id="DeptNeurology"
+                               name="dept" value="Neurology">
+                        <label for="DeptNeurology">Neurology</label>
+
+                        <p id="DeptError"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" id="submit" value="Signup">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+    </form>
+
+    <script>
+        function collect_data()
+        {
+            let validName = validateName();
+            let validateAge = validAge();
+            let validategender = validateGender();
+            let validDept = validateDepartment();
+
+            if(validName && validateAge && validategender && validDept)
+            {
+                alert("Registration Successful");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        function validateName()
+        {
+            let Pname = document.getElementById("PatientName").value.trim();
+            let Error = document.getElementById("NameError");
+
+            if(Pname == "")
+            {
+                Error.innerHTML = "Enter The Name";
+                return false;
+            }
+            else if(Pname.length < 6)
+            {
+                Error.innerHTML = "Name Must be at least 6 Char";
+                return false;
+            }
+            else
+            {
+                Error.innerHTML = "Patient Name: " + Pname;
+                return true;
+            }
+        }
+
+        function validAge()
+        {
+            let PAge = Number(document.getElementById("PatientAge").value);
+            let ErrorAge = document.getElementById("AgeError");
+
+            if(document.getElementById("PatientAge").value == "")
+            {
+                ErrorAge.innerHTML = "Please Enter The Age";
+                return false;
+            }
+            else if(PAge < 1 || PAge > 100)
+            {
+                ErrorAge.innerHTML = "Age Must be Within 1 to 100";
+                return false;
+            }
+            else
+            {
+                ErrorAge.innerHTML = "Patient Age: " + PAge;
+                return true;
+            }
+        }
+
+        function validateGender()
+        {
+            let genders = document.querySelectorAll('input[name="gender"]');
+            let GenderError = document.getElementById("ErrorGender");
+            let selectGender = "";
+
+            for(let i = 0; i < genders.length; i++)
+            {
+                if(genders[i].checked)
+                {
+                    selectGender = genders[i].value;
+                    break;
+                }
+            }
+
+            if(selectGender == "")
+            {
+                GenderError.innerHTML = "Please Select the Gender";
+                return false;
+            }
+            else
+            {
+                GenderError.innerHTML = "Gender: " + selectGender;
+                return true;
+            }
+        }
+
+        function validateDepartment()
+        {
+            let departments = document.querySelectorAll('input[name="dept"]');
+            let deptError = document.getElementById("DeptError");
+            let selectedDepartments = [];
+
+            for(let i = 0; i < departments.length; i++)
+            {
+                if(departments[i].checked)
+                {
+                    selectedDepartments.push(departments[i].value);
+                }
+            }
+
+            if(selectedDepartments.length === 0)
+            {
+                deptError.innerHTML = "Please Select at least one Department";
+                return false;
+            }
+            else
+            {
+                deptError.innerHTML = "Selected Department(s): "
+                    + selectedDepartments.join(", ");
+                return true;
+            }
+        }
+    </script>
+
+</body>
+</html>

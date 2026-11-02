@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../Design/style.css">
+    <script src="../JS/script.js" defer></script>
+    <title>Quiz Practice</title>
+</head>
+<body>
+    <form onsubmit="return collect_data()">
+    <fieldset>
+        <legend>Patient Choices</legend>
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <p id="ErrorGender"></p>
+        <label>Doctor Department:</label>
+        <input type="checkbox" name="dept" value="Medicine"> Medicine
+        <input type="checkbox" name="dept" value="Cardiac"> Cardiac
+        <input type="checkbox" name="dept" value="Neurology"> Neurology
+        <p id="DeptError"></p>
+        <input type="submit" id="submit" value="Signup">
+    </fieldset>
+</form>
+</body>
+</html>
