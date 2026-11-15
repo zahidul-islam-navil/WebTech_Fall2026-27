@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "D:\EJU-CHAE-SON\8th\Webtech\WebTech_Fall2026-27\MID\Student\Practice_Mid\style.css">
+    <script src = "D:\EJU-CHAE-SON\8th\Webtech\WebTech_Fall2026-27\MID\Student\Practice_Mid\script.js"> </script>
+    <title>AIUB Student Admission & Enrollment Portal</title>
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>AIUB Admission & Registration Form</h1>
+        <p>Faculty of Science & Information Technology | Fall 2026–2027</p>
+    </div>
+
+    <!-- Form container with onsubmit event hooking our master validation function -->
+    <form id="registrationForm" onsubmit="return validateForm()" onreset="clearAllErrors()">
+
+        <!-- ========================================================= -->
+        <!--  SECTION 1: PERSONAL & ACADEMIC INFORMATION              -->
+        <!-- ========================================================= -->
+        <fieldset>
+            <legend>Personal & Academic Details</legend>
+            <table>
+                <!-- Full Name (type="text") -->
+                <tr>
+                    <td><label for="fullName">Full Name :</label></td>
+                    <td>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g., Sadman Sakib">
+                        <span id="nameError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Student ID (type="text") -->
+                <tr>
+                    <td><label for="studentId">Student ID :</label></td>
+                    <td>
+                        <input type="text" id="studentId" name="studentId" placeholder="e.g., 22-46001-1">
+                        <span id="idError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Age (type="number") -->
+                <tr>
+                    <td><label for="studentAge">Age :</label></td>
+                    <td>
+                        <input type="number" id="studentAge" name="studentAge" placeholder="Enter Age (17 - 60)">
+                        <span id="ageError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Date of Birth (type="date") -->
+                <tr>
+                    <td><label for="studentDOB">Date of Birth :</label></td>
+                    <td>
+                        <input type="date" id="studentDOB" name="studentDOB">
+                        <span id="dobError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Email (type="email") -->
+                <tr>
+                    <td><label for="studentEmail">Email Address :</label></td>
+                    <td>
+                        <input type="email" id="studentEmail" name="studentEmail" placeholder="e.g., student@aiub.edu">
+                        <span id="emailError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Gender (type="radio") -->
+                <tr>
+                    <td>Gender :</td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="Male">
+                        <label for="male">Male</label>
+
+                        <input type="radio" name="gender" id="female" value="Female">
+                        <label for="female">Female</label>
+
+                        <input type="radio" name="gender" id="other" value="Other">
+                        <label for="other">Other</label>
+
+                        <span id="genderError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Departments of Interest (type="checkbox") -->
+                <tr>
+                    <td>Department(s) :</td>
+                    <td>
+                        <input type="checkbox" name="dept" id="deptCSE" value="CSE">
+                        <label for="deptCSE">CSE</label>
+
+                        <input type="checkbox" name="dept" id="deptEEE" value="EEE">
+                        <label for="deptEEE">EEE</label>
+
+                        <input type="checkbox" name="dept" id="deptBBA" value="BBA">
+                        <label for="deptBBA">BBA</label>
+
+                        <span id="deptError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Degree Program (select / dropdown) -->
+                <tr>
+                    <td><label for="degreeProgram">Degree Program :</label></td>
+                    <td>
+                        <select id="degreeProgram" name="degreeProgram">
+                            <option value="">-- Select Degree Program --</option>
+                            <option value="CSE">B.Sc. in Computer Science & Engineering</option>
+                            <option value="EEE">B.Sc. in Electrical & Electronic Engineering</option>
+                            <option value="SE">B.Sc. in Software Engineering</option>
+                            <option value="BBA">Bachelor of Business Administration</option>
+                        </select>
+                        <span id="programError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Academic Transcript File (type="file") -->
+                <tr>
+                    <td><label for="transcript">Academic Transcript :</label></td>
+                    <td>
+                        <input type="file" id="transcript" name="transcript">
+                        <span id="fileError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Present Address (textarea) -->
+                <tr>
+                    <td><label for="address">Present Address :</label></td>
+                    <td>
+                        <textarea id="address" name="address"
+                            placeholder="Enter your full street address, city, and zip code"></textarea>
+                        <span id="addressError" class="error-msg"></span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- ========================================================= -->
+        <!--  SECTION 2: ACCOUNT SECURITY & AGREEMENT                 -->
+        <!-- ========================================================= -->
+        <fieldset>
+            <legend>Account Security & Declaration</legend>
+            <table>
+                <!-- Password (type="password") -->
+                <tr>
+                    <td><label for="userPassword">Password :</label></td>
+                    <td>
+                        <input type="password" id="userPassword" name="userPassword"
+                            placeholder="Min. 8 chars with letters & numbers">
+                        <span id="passwordError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Confirm Password (type="password") -->
+                <tr>
+                    <td><label for="confirmPassword">Confirm Password :</label></td>
+                    <td>
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Re-enter your password">
+                        <span id="confirmPassError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <!-- Terms and Conditions (single checkbox) -->
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" id="termsCheck" name="termsCheck">
+                        <label for="termsCheck">I declare that all the information provided above is accurate and
+                            true.</label>
+                        <span id="termsError" class="error-msg"></span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- Form Submit & Reset Buttons -->
+        <div class="btn-container">
+            <input type="submit" id="submitBtn" value="Register Student">
+            <input type="reset" id="resetBtn" value="Reset Form">
+        </div>
+    </form>
+
+    <div class="footer">
+        <p>&copy; 2026–2027 American International University-Bangladesh (AIUB) | Department of Computer Science</p>
+    </div>
+
+</body>
+
+</html>

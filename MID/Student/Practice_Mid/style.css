@@ -1,0 +1,160 @@
+ * {
+            box-sizing: border-box;
+        }
+
+        /* 2. Body Layout & Background (Following AIUB Faculty Lab Styles) */
+        body {
+            font-family: Cambria, Georgia, 'Times New Roman', serif;
+            font-size: 16px;
+            color: #222;
+            background-color: aliceblue;
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 10px 20px 40px 20px;
+        }
+
+        /* 3. Header Banner */
+        .header {
+            text-align: center;
+            background-color: #111;
+            color: #ffffff;
+            padding: 15px 10px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* 4. Fieldset & Legend Design */
+        fieldset {
+            background-color: #ffffff;
+            border: 2px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        legend {
+            background-color: bisque;
+            color: #111;
+            font-weight: bold;
+            font-size: 17px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+
+        /* 5. Table Layout for Label & Input Alignment */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 8px 6px;
+            vertical-align: top;
+        }
+
+        td:first-child {
+            width: 32%;
+            font-weight: bold;
+        }
+
+        /* 6. Form Controls Styling (Text, Email, Password, Number, Date, File, Select, Textarea) */
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 94%;
+            padding: 8px 10px;
+            font-family: inherit;
+            font-size: 15px;
+            border: 1px solid #777;
+            border-radius: 5px;
+            background-color: snow;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        /* Focus state for better UX */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007acc;
+            background-color: #ffffff;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+            /* Disables manual resizing as practiced in lab */
+        }
+
+        /* 7. Radio & Checkbox Adjustments */
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 6px 4px 0 6px;
+            accent-color: #111;
+            cursor: pointer;
+        }
+
+        /* 8. Action Buttons (Submit & Reset) */
+        .btn-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 24px;
+            font-size: 16px;
+            font-family: inherit;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #111;
+            width: 45%;
+            margin: 0 8px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: skyblue;
+            color: #000;
+        }
+
+        /* 9. Dynamic Error Message Styling */
+        .error-msg {
+            color: red;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 4px 0 0 0;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 30px;
+        }

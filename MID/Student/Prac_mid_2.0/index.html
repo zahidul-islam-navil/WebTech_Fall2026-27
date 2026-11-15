@@ -1,0 +1,247 @@
+<!-- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technologies Workshop Registration</title>
+    <link rel = "stylesheet" href = "D:\EJU-CHAE-SON\8th\Webtech\WebTech_Fall2026-27\MID\Student\Prac_mid_2.0\style.css">
+    <script src = "D:\EJU-CHAE-SON\8th\Webtech\WebTech_Fall2026-27\MID\Student\Prac_mid_2.0\script.js"> </script>
+
+</head>
+<body>
+    
+    <main class="card">
+        <h1>Web Technologies Workshop Registration</h1>
+
+        <!-- novalidate lets our JavaScript display its own field errors. -->
+        <form id="workshopForm" method="post" novalidate
+              onsubmit="return validateForm(event)" onreset="resetFeedback()">
+
+            <input type="hidden" id="eventCode" name="eventCode" value="WEB-LAB">
+
+            <fieldset>
+                <legend>Student Details</legend>
+
+                <table role="presentation">
+                    <tr>
+                        <td><label for="fullName">Full name</label></td>
+                        <td>
+                            <input class="control" type="text" id="fullName" name="fullName"
+                                   aria-describedby="nameError">
+                            <p class="error" id="nameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="studentId">Student ID</label></td>
+                        <td>
+                            <!-- Text preserves the hyphens and any leading zeros. -->
+                            <input class="control" type="text" id="studentId" name="studentId"
+                                   placeholder="24-12345-2" aria-describedby="idError">
+                            <p class="error" id="idError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">Date of birth</label></td>
+                        <td>
+                            <input class="control" type="date" id="dob" name="dob"
+                                   aria-describedby="dobError">
+                            <p class="error" id="dobError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td>
+                            <input class="control" type="email" id="email" name="email"
+                                   aria-describedby="emailError">
+                            <p class="error" id="emailError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone">Mobile number</label></td>
+                        <td>
+                            <input class="control" type="tel" id="phone" name="phone"
+                                   placeholder="01712345678" aria-describedby="phoneError">
+                            <p class="error" id="phoneError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label></td>
+                        <td>
+                            <input class="control" type="password" id="password" name="password"
+                                   autocomplete="new-password" aria-describedby="passwordError">
+                            <p class="error" id="passwordError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="confirmPassword">Confirm password</label></td>
+                        <td>
+                            <input class="control" type="password" id="confirmPassword"
+                                   name="confirmPassword" autocomplete="new-password"
+                                   aria-describedby="confirmError">
+                            <p class="error" id="confirmError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="semester">Semester</label></td>
+                        <td>
+                            <input class="control" type="number" id="semester" name="semester"
+                                   min="1" max="12" step="1" aria-describedby="semesterError">
+                            <p class="error" id="semesterError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="department">Department</label></td>
+                        <td>
+                            <select class="control" id="department" name="department"
+                                    aria-describedby="departmentError">
+                                <option value="">Choose a department</option>
+                                <option value="CSE">CSE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="BBA">BBA</option>
+                            </select>
+                            <p class="error" id="departmentError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Workshop Choices</legend>
+
+                <table role="presentation">
+                    <tr>
+                        <td>Attendance mode</td>
+                        <td>
+                            <div role="group" aria-label="Attendance mode"
+                                 aria-describedby="modeError">
+                                <!-- The shared name makes these radios a single-choice group. -->
+                                <input type="radio" id="onCampus" name="mode" value="On campus">
+                                <label class="choice" for="onCampus">On campus</label>
+
+                                <input type="radio" id="online" name="mode" value="Online">
+                                <label class="choice" for="online">Online</label>
+                            </div>
+                            <p class="error" id="modeError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Choose at least two topics</td>
+                        <td>
+                            <div role="group" aria-label="Workshop topics"
+                                 aria-describedby="topicsError">
+                                <!-- The shared name lets JavaScript find all three checkboxes. -->
+                                <input type="checkbox" id="topicHtml" name="topics" value="HTML">
+                                <label class="choice" for="topicHtml">HTML</label>
+
+                                <input type="checkbox" id="topicCss" name="topics" value="CSS">
+                                <label class="choice" for="topicCss">CSS</label>
+
+                                <input type="checkbox" id="topicJs" name="topics" value="JavaScript">
+                                <label class="choice" for="topicJs">JavaScript</label>
+                            </div>
+                            <p class="error" id="topicsError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="proof">Enrollment proof (PDF, up to 2 MiB)</label></td>
+                        <td>
+                            <input class="control" type="file" id="proof" name="proof"
+                                   accept=".pdf" aria-describedby="proofError">
+                            <p class="error" id="proofError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="note">Learning goal (optional)</label></td>
+                        <td>
+                            <textarea class="control" id="note" name="note" rows="3"
+                                      placeholder="What would you like to learn?"
+                                      aria-describedby="noteError"></textarea>
+                            <p class="error" id="noteError"></p>
+                        </td>
+                    </tr>
+                </table>
+
+                <input type="checkbox" id="terms" name="terms" value="agreed"
+                       aria-describedby="termsError">
+                <label class="choice" for="terms">I agree to the workshop terms.</label>
+                <p class="error" id="termsError"></p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Optional Preferences</legend>
+
+                <table role="presentation">
+                    <tr>
+                        <td><label for="portfolio">Portfolio URL</label></td>
+                        <td>
+                            <input class="control" type="url" id="portfolio" name="portfolio"
+                                   placeholder="https://example.com" aria-describedby="urlError">
+                            <p class="error" id="urlError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="keyword">Topic keyword</label></td>
+                        <td><input class="control" type="search" id="keyword" name="keyword"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="workshopMonth">Preferred month</label></td>
+                        <td>
+                            <input class="control" type="month" id="workshopMonth" name="workshopMonth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="backupWeek">Backup week</label></td>
+                        <td><input class="control" type="week" id="backupWeek" name="backupWeek"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="startTime">Preferred start time</label></td>
+                        <td><input class="control" type="time" id="startTime" name="startTime"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="orientation">Available for orientation at</label></td>
+                        <td>
+                            <input class="control" type="datetime-local" id="orientation"
+                                   name="orientation">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="level">Familiarity with web development</label></td>
+                        <td>
+                            <input type="range" id="level" name="level" min="1" max="5"
+                                   value="3" oninput="updatePreferences()">
+                            <output id="levelValue" for="level">3</output> / 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="badgeColor">Badge color</label></td>
+                        <td>
+                            <input type="color" id="badgeColor" name="badgeColor"
+                                   value="#174e96" oninput="updatePreferences()">
+                            <span id="badgeSwatch" aria-hidden="true"></span>
+                        </td>
+                    </tr>
+                </table>
+
+                <input class="button secondary" type="button" value="Preview preferences"
+                       onclick="previewPreferences()">
+                <p id="preview" role="status"></p>
+            </fieldset>
+
+            <div class="actions">
+                <input class="button" type="submit" value="Register">
+
+                <!-- This image is embedded so the page needs only one file. -->
+                <input class="button" type="image" alt="Register using arrow button"
+                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAYAAAA/mJfHAAAAVklEQVR42t3TOQ4AIAgEQHb//2esTGw4pTDSmgwgIPJFqKp676xCHpjGACCqkJU2I5DVf/NAdgZhgchOKpOAEyuzK8Xtvp0tcwoqYx7UugALGr/Nd2MBMQc0CVcqznwAAAAASUVORK5CYII=">
+
+                <input class="button secondary" type="reset" value="Reset">
+            </div>
+
+            <p id="status" role="status"></p>
+        </form>
+    </main>
+
+</body>
+</html>
